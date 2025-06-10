@@ -1,0 +1,26 @@
+{
+  "roscribe_plugin": {
+    "source": "local",
+    "path": "onecode/plugins/roscribe_plugin",
+    "version": "1.0.0",
+    "status": "installed"
+  },
+  "btgenbot_plugin": {
+    "source": "local",
+    "path": "onecode/plugins/btgenbot_plugin",
+    "version": "1.0.0",
+    "status": "installed"
+  },
+  "symforce_plugin": {
+    "source": "local",
+    "path": "onecode/plugins/symforce_plugin",
+    "version": "1.0.0",
+    "status": "installed"
+  },
+  "ros_llm_plugin": {
+    "source": "local",
+    "path": "onecode/plugins/ros_llm_plugin",
+    "version": "1.0.0",
+    "status": "installed"
+  }
+}

@@ -1,0 +1,1 @@
+"""Sample plugin for OneCodePlant demonstration."""

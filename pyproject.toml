@@ -1,0 +1,122 @@
+[project]
+name = "onecode-plant"
+version = "0.1.0"
+description = "OneCodePlant - A modular AI-enhanced CLI tool for robotics development"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "OneCodePlant Team", email = "info@onecodeplant.com"}
+]
+maintainers = [
+    {name = "OneCodePlant Team", email = "info@onecodeplant.com"}
+]
+keywords = ["robotics", "ros2", "cli", "ai", "automation", "simulation"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Systems Administration",
+]
+requires-python = ">=3.11"
+dependencies = [
+    "click>=8.2.1",
+    "psutil>=7.0.0",
+]
+
+[project.optional-dependencies]
+ai = [
+    "anthropic>=0.52.2",
+    "openai>=1.84.0",
+]
+dev = [
+    "pytest>=8.4.0",
+    "pytest-cov>=6.1.1",
+    "pytest-mock>=3.14.1",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "ruff>=0.5.5",
+    "mypy>=1.5.0",
+]
+all = [
+    "anthropic>=0.52.2",
+    "openai>=1.84.0",
+    "pytest>=8.4.0",
+    "pytest-cov>=6.1.1",
+    "pytest-mock>=3.14.1",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+    "mypy>=1.5.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/onecodeplant/onecode-plant"
+Documentation = "https://docs.onecodeplant.com"
+Repository = "https://github.com/onecodeplant/onecode-plant"
+"Bug Tracker" = "https://github.com/onecodeplant/onecode-plant/issues"
+Changelog = "https://github.com/onecodeplant/onecode-plant/blob/main/CHANGELOG.md"
+
+[project.scripts]
+onecode = "onecode.cli:main"
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["onecode*"]
+exclude = ["tests*"]
+
+[tool.setuptools.package-data]
+onecode = ["*.json", "*.md", "*.txt"]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --strict-markers"
+testpaths = ["tests"]
+markers = [
+    "unit: Unit tests that don't require external dependencies",
+    "integration: Integration tests that may require external systems",
+    "slow: Tests that take significant time to run",
+    "requires_ros: Tests that require ROS 2 environment",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["onecode"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+ignore_missing_imports = true

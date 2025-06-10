@@ -1,0 +1,22 @@
+"""Jinja2 template for a ROS 2 Python node."""
+# {{ node_name }}.py
+import rclpy
+from rclpy.node import Node
+# ...additional imports...
+
+class {{ class_name }}(Node):
+    def __init__(self):
+        super().__init__('{{ node_name }}')
+        # ...user code...
+
+    # ...user methods...
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = {{ class_name }}()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
