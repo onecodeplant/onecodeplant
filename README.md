@@ -34,11 +34,7 @@ OneCodePlant simplifies ROS 2 workflows and robotics development through an exte
 ### Installation
 
 ```bash
-# Install from PyPI
-pip install onecode-plant
 
-# Install with AI features
-pip install onecode-plant[ai]
 
 # Install development version from source
 # git clone <your-repo-url>
